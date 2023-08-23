@@ -16,11 +16,10 @@
             define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
 
             $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN . "&include=favorites");
-            $courses = json_decode($response);
-            echo var_dump($courses);
-            // for ($i = 0; $i < $courses.count(); $i++) {
-            //   echo "<li>{$courses[$i]->name}</li>";
-            // }
+            $courses = json_decode($response, true);
+            for ($i = 0; $i < $courses.count(); $i++) {
+              echo "<li>{$courses[$i]->name}</li>";
+            }
           ?>
           </ul>
         </div>
