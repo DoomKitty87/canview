@@ -9,12 +9,17 @@
   </head>
   <body>
     <main>
-        <h1>Dashboard</h1>  
+        <h1>Dashboard test</h1>  
         <div class="classlist">
           <ul class="classes">
           <?php
             define("userToken", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
-            echo userToken;
+            
+            $client = new GuzzleHttp\Client();
+            $res = $client->request('GET', 'https://api.github.com/user', [
+                'auth' => ['user', 'pass']
+            ]);
+
           ?>
           </ul>
         </div>
