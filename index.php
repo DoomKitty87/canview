@@ -22,7 +22,7 @@
             //   $coursename = $courses[$i]->name;
             //   echo "<li>$coursename</li>";
             // }
-            echo $courses;
+            echo $response;
           ?>
           </ul>
         </div>
