@@ -15,7 +15,7 @@
           <?php
             define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
 
-            $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=$userToken");
+            $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN);
 
             // $courses = json_decode($response, false);
             // for ($i = 0; $i < $courses.count(); $i++) {
