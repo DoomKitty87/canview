@@ -9,21 +9,31 @@
   </head>
   <body>
     <main>
-        <h1>Dashboard</h1>  
-        <div class="classlist">
-          <ul class="classes">
-          <?php
-            define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
+      <h1>Dashboard</h1>  
+      <div class="classlist">
+        <ul class="classes">
+        <?php
+          define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
 
-            $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN . "&enrollment_state=active");
-            $courses = json_decode($response, false);
-            for ($i = 0; $i < count($courses); $i++) {
-              $coursename = $courses[$i]->name;
-              echo "<li>$coursename</li>";
-            }
-          ?>
-          </ul>
-        </div>
+          $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN . "&enrollment_state=active");
+          $courses = json_decode($response, false);
+          for ($i = 0; $i < count($courses); $i++) {
+            $coursename = $courses[$i]->name;
+            $courseid = $courses[$i]->id;
+            echo "<li onlick=\"courseInfo($courseid)\">$coursename</li>";
+          }
+        ?>
+        </ul>
+      </div>
+      <h3 id="classInfo">Click on a class to view more information.</h3>
     </main>
+    <script>
+      function courseInfo(courseid) {
+        classInfo.innerHTML = "Loading...";
+        fetch('classinfo.php', { method: "POST", body: courseid })
+          .then(response => response.text())
+          .then(data => classInfo.innerHTML = data);
+      }
+    </script>
   </body>
 </html>
