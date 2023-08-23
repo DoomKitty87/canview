@@ -29,6 +29,7 @@
     </main>
     <script>
       function courseInfo(courseid) {
+        console.log("Clicked");
         document.getElementById("classInfo").innerHTML = "Loading...";
         fetch('classinfo.php', { method: "POST", body: courseid })
           .then(response => response.text())
