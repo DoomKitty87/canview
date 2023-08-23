@@ -15,13 +15,11 @@
           <?php
             define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
 
-            $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN . "&include=favorites");
+            $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN . "&enrollment_state=active");
             $courses = json_decode($response, false);
             for ($i = 0; $i < count($courses); $i++) {
-              if ($courses[$i]->is_favorite == "true") {
-                  $coursename = $courses[$i]->name;
-                  echo "<li>$coursename</li>";
-              }
+              $coursename = $courses[$i]->name;
+              echo "<li>$coursename</li>";
             }
           ?>
           </ul>
