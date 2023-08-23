@@ -18,7 +18,7 @@
             $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=" . USERTOKEN . "&include=favorites");
             $courses = json_decode($response, true);
             for ($i = 0; $i < $courses.count(); $i++) {
-              $coursename = $courses[$i]->name
+              $coursename = $courses[$i]->name;
               echo "<li>$coursename</li>";
             }
           ?>
