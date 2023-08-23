@@ -20,7 +20,7 @@
           for ($i = 0; $i < count($courses); $i++) {
             $coursename = $courses[$i]->name;
             $courseid = $courses[$i]->id;
-            echo "<li onclick=\"courseInfo($courseid)\" style=\"user-select:none\">$coursename</li>";
+            echo "<li onclick=\"courseInfo($courseid, $USERTOKEN)\" style=\"user-select:none\">$coursename</li>";
           }
         ?>
         </ul>
@@ -28,9 +28,9 @@
       <h3 id="classInfo">Click on a class to view more information.</h3>
     </main>
     <script>
-      function courseInfo(courseid) {
+      function courseInfo(courseid, usertoken) {
         document.getElementById("classInfo").innerHTML = "Loading...";
-        fetch(`classinfo.php?id=${courseid}`, { method: "GET" })
+        fetch(`classinfo.php?id=${courseid}?token=${usertoken}`, { method: "GET" })
           .then(response => response.text())
           .then(data => classInfo.innerHTML = data);
       }
