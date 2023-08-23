@@ -14,9 +14,11 @@
           <ul class="classes">
           <?php
             define("userToken", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
-
-            
-
+            $courses = json_decode($response, false);
+            for ($i = 0; $i < $courses.count(); $i++) {
+              $coursename = $courses[$i]->name;
+              echo "<li>$coursename</li>";
+            }
           ?>
           </ul>
         </div>
