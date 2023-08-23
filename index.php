@@ -10,7 +10,7 @@
   <body>
     <main>
       <h1>Dashboard</h1>  
-      <div class="classlist">
+      <div class="classList">
         <ul class="classes">
         <?php
           define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
@@ -20,7 +20,7 @@
           for ($i = 0; $i < count($courses); $i++) {
             $coursename = $courses[$i]->name;
             $courseid = $courses[$i]->id;
-            echo "<li onclick=\"courseInfo($courseid, '" . USERTOKEN . "')\" style=\"user-select:none\">$coursename</li>";
+            echo "<li onclick=\"courseInfo($courseid, '" . USERTOKEN . "')\" class=\"classListElement\">$coursename</li>";
           }
         ?>
         </ul>
