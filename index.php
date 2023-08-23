@@ -20,8 +20,7 @@
           for ($i = 0; $i < count($courses); $i++) {
             $coursename = $courses[$i]->name;
             $courseid = $courses[$i]->id;
-            $token = USERTOKEN;
-            echo "<li onclick=\"courseInfo($courseid, $token)\" style=\"user-select:none\">$coursename</li>";
+            echo "<li onclick=\"courseInfo($courseid, " . USERTOKEN . ")\" style=\"user-select:none\">$coursename</li>";
           }
         ?>
         </ul>
