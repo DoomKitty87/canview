@@ -20,7 +20,7 @@
           for ($i = 0; $i < count($courses); $i++) {
             $coursename = $courses[$i]->name;
             $courseid = $courses[$i]->id;
-            echo "<li onlick=\"courseInfo($courseid)\">$coursename</li>";
+            echo "<div onlick=\"courseInfo($courseid)\"><li>$coursename</li></div>";
           }
         ?>
         </ul>
