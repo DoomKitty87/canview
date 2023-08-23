@@ -13,11 +13,11 @@
         <div class="classlist">
           <ul class="classes">
           <?php
-            define("userToken", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
+            define("USERTOKEN", "8909~DyORirLbPlOMvbsGo93oOIMkTsD58A5wtlTPh6Ob0duGktqHfMHfiTmfi4fxqakO");
 
             $response = file_get_contents("https://lms.pps.net/api/v1/courses?access_token=$userToken");
 
-            $courses = json_decode($response, false);
+            // $courses = json_decode($response, false);
             // for ($i = 0; $i < $courses.count(); $i++) {
             //   $coursename = $courses[$i]->name;
             //   echo "<li>$coursename</li>";
