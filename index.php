@@ -29,7 +29,7 @@
     </main>
     <script>
       function courseInfo(courseid) {
-        classInfo.innerHTML = "Loading...";
+        document.getElementById("classInfo").innerHTML = "Loading...";
         fetch('classinfo.php', { method: "POST", body: courseid })
           .then(response => response.text())
           .then(data => classInfo.innerHTML = data);
