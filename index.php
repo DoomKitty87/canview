@@ -30,7 +30,7 @@
     <script>
       function courseInfo(courseid) {
         document.getElementById("classInfo").innerHTML = "Loading...";
-        fetch(`classinfo.php?id=${courseid}`, method="GET")
+        fetch(`classinfo.php?id=${courseid}`, { method: "GET" })
           .then(response => response.text())
           .then(data => classInfo.innerHTML = data);
       }
